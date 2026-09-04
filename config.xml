@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ksyusha.loveapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Для Ксюши</name>
+    <description>Приложение с любовью для Ксюши</description>
+    <author email="love@ksyusha.com" href="https://ksyusha.com">
+        С любовью
+    </author>
+    <content src="www/index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#0a0a0f" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="SplashScreenDelay" value="1000" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="Fullscreen" value="true" />
+    <icon src="www/icon.png" />
+    <platform name="ios">
+        <icon src="www/icon.png" width="57" height="57" />
+        <icon src="www/icon.png" width="72" height="72" />
+        <icon src="www/icon.png" width="114" height="114" />
+        <icon src="www/icon.png" width="120" height="120" />
+        <icon src="www/icon.png" width="144" height="144" />
+        <icon src="www/icon.png" width="152" height="152" />
+        <icon src="www/icon.png" width="180" height="180" />
+        <preference name="UIWebViewBounce" value="false" />
+        <preference name="UIStatusBarStyle" value="UIStatusBarStyleLightContent" />
+    </platform>
+</widget>

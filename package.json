@@ -1,0 +1,12 @@
+{
+  "name": "ksyusha-love-app",
+  "version": "1.0.0",
+  "description": "Приложение с любовью для Ксюши",
+  "main": "www/index.html",
+  "scripts": {
+    "build": "echo 'Build the IPA using Xcode'",
+    "open": "npx cap open ios"
+  },
+  "author": "С любовью",
+  "license": "ISC"
+}
