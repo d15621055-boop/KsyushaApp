@@ -20,23 +20,25 @@ jobs:
         run: npm install -g cordova
 
       - name: Add iOS platform
-        run: |
-          cordova platform add ios
+        run: cordova platform add ios
 
-      - name: Build iOS (debug)
+      - name: Build for Device (unsigned)
         run: |
-          cordova build ios --debug
+          cordova build ios --device --debug -- \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="-" \
+            DEVELOPMENT_TEAM="" \
+            PROVISIONING_PROFILE=""
 
-      - name: Package IPA
+      - name: Package unsigned IPA
         run: |
+          APP_PATH=$(find platforms/ios/build -name "*.app" -type d | head -1)
+          echo "Found app: $APP_PATH"
           mkdir -p Payload
-          cp -r platforms/ios/build/device/*.app Payload/ 2>/dev/null || \
-          cp -r platforms/ios/build/Debug-iphoneos/*.app Payload/ 2>/dev/null || \
-          cp -r platforms/ios/build/Release-iphoneos/*.app Payload/ 2>/dev/null || \
-          find platforms/ios -name "*.app" -exec cp -r {} Payload/ \;
+          cp -r "$APP_PATH" Payload/
           zip -r KsyushaApp.ipa Payload/
-          
-      - name: Upload IPA artifact
+
+      - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
           name: KsyushaApp-ipa
